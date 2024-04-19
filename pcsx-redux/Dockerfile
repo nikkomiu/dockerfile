@@ -1,4 +1,4 @@
-FROM ubuntu:23.10 AS pcsx-redux-build
+FROM ubuntu:23.10
 
 RUN apt-get update && apt-get install -y \
     build-essential git make pkg-config clang \

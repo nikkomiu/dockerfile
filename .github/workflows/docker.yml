@@ -21,6 +21,8 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         context: .
-        file: pcsx-redux/Dockerfile
         platforms: linux/amd64
+        file: pcsx-redux/Dockerfile
+        tag: nikkomiu/pcsx-redux:latest
+        push: true
         no-cache: true

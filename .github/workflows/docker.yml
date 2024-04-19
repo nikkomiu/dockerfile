@@ -17,12 +17,18 @@ jobs:
       uses: docker/setup-qemu-action@v3
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
+    - name: Log in to GitHub Container Registry
+      uses: docker/login-action@v1
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
     - name: Build the Docker image
       uses: docker/build-push-action@v5
       with:
         context: .
         platforms: linux/amd64
         file: pcsx-redux/Dockerfile
-        tags: nikkomiu/pcsx-redux:${{ github.ref_name }}
+        tags: ghcr.io/nikkomiu/pcsx-redux:${{ github.ref_name }}
         push: true
         no-cache: true

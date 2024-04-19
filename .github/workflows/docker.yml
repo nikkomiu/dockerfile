@@ -23,6 +23,6 @@ jobs:
         context: .
         platforms: linux/amd64
         file: pcsx-redux/Dockerfile
-        tag: nikkomiu/pcsx-redux:latest
+        tags: nikkomiu/pcsx-redux:${{ github.ref_name }}
         push: true
         no-cache: true
